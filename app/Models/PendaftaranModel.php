@@ -19,6 +19,8 @@ class PendaftaranModel extends Model
         'penghasilan_ayah', 'penghasilan_ibu', 'id_pekerjaan_ayah', 'id_pekerjaan_ibu',
         'nama_wali', 'pendidikan_wali', 'hubungan_wali', 'id_pekerjaan_wali',
         'masuk_sebagai', 'asal_peserta_didik', 'nama_tk', 'tahun_nomor_ijazah',
-        'ttd_ortu', 'status_pendaftaran', 'alasan_tolak', 'pesan_perbaikan'
+        'ttd_ortu', 'status_pendaftaran', 'alasan_tolak', 'pesan_perbaikan',
+        'id_alamat', 'id_alamat_ayah', 'id_alamat_ibu', 'id_pendidikan_ayah', 
+        'id_pendidikan_ibu', 'id_tk', 'asal_alamat_tk'
     ];
 }
