@@ -286,3 +286,18 @@ DEBUG - 2026-04-10 16:27:52 --> Session: Class initialized using 'CodeIgniter\Se
 DEBUG - 2026-04-10 16:28:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2026-04-10 16:28:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2026-04-10 16:29:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-10 16:32:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-10 16:32:04 --> ErrorException: Undefined property: stdClass::$edu_ayah
+[Method: GET, Route: admin/konfirmasi/detail/143]
+in APPPATH\Views\admin\konfirmasi\detail.php on line 126.
+ 1 APPPATH\Views\admin\konfirmasi\detail.php(126): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$edu_ayah', 'C:\\xampp\\htdocs\\Spmb\\app\\Views\\admin\\konfirmasi\\detail.php', 126)
+ 2 SYSTEMPATH\View\View.php(238): include('C:\\xampp\\htdocs\\Spmb\\app\\Views\\admin\\konfirmasi\\detail.php')
+ 3 SYSTEMPATH\View\View.php(241): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('admin/konfirmasi/detail', [], true)
+ 5 APPPATH\Controllers\Admin\Konfirmasi.php(57): view('admin/konfirmasi/detail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Admin\Konfirmasi->detail('143')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Konfirmasi))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
