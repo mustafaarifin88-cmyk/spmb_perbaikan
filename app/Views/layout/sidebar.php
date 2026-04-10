@@ -40,6 +40,46 @@
         font-weight: 700 !important;
         letter-spacing: 1px;
     }
+    
+    .sidebar-user-profile {
+        padding: 1.5rem 1rem;
+        margin: 0 1rem 1rem 1rem;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+    .sidebar-user-profile:hover {
+        background: rgba(255, 255, 255, 0.08);
+    }
+    .sidebar-user-avatar {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        border: 3px solid #696cff;
+        padding: 3px;
+        margin-bottom: 12px;
+        object-fit: cover;
+        box-shadow: 0 0 20px rgba(105, 108, 255, 0.3);
+    }
+    .sidebar-user-name {
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 0.95rem;
+        margin-bottom: 3px;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .sidebar-user-role {
+        color: #94a3b8;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-weight: 600;
+    }
 </style>
 
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
@@ -57,7 +97,13 @@
 
     <div class="menu-inner-shadow"></div>
 
-    <ul class="menu-inner py-3">
+    <div class="sidebar-user-profile mt-2">
+        <img src="<?= base_url('uploads/profil/' . (session()->get('foto_profil') ?: 'default.png')) ?>" alt="User Avatar" class="sidebar-user-avatar">
+        <span class="sidebar-user-name"><?= session()->get('nama_lengkap') ?: 'Pengguna' ?></span>
+        <span class="sidebar-user-role"><?= session()->get('level') == 'admin' ? 'Administrator' : 'Calon Siswa' ?></span>
+    </div>
+
+    <ul class="menu-inner py-2">
         <?php if (session()->get('level') == 'admin') : ?>
             <li class="menu-item <?= uri_string() == 'admin/dashboard' ? 'active' : '' ?>">
                 <a href="<?= base_url('admin/dashboard') ?>" class="menu-link">
@@ -193,8 +239,8 @@
             </li>
         <?php endif; ?>
 
-        <li class="menu-item mt-5">
-            <a href="<?= base_url('auth/logout') ?>" class="menu-link text-danger fw-bold">
+        <li class="menu-item mt-4 mb-4">
+            <a href="<?= base_url('auth/logout') ?>" class="menu-link text-danger fw-bold" style="background: rgba(255, 62, 29, 0.1);">
                 <i class="menu-icon tf-icons bx bx-power-off text-danger"></i>
                 <div data-i18n="Logout">Keluar Sistem</div>
             </a>
