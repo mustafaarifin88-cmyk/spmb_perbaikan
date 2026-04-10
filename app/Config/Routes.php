@@ -2,6 +2,9 @@
 
 use CodeIgniter\Router\RouteCollection;
 
+/**
+ * @var RouteCollection $routes
+ */
 $routes->get('/', 'Home::index');
 
 $routes->group('auth', function ($routes) {
@@ -23,6 +26,10 @@ $routes->group('admin', ['filter' => 'role:admin'], function ($routes) {
     $routes->post('adminuser/update/(:num)', 'Admin\AdminUser::update/$1');
     $routes->get('adminuser/delete/(:num)', 'Admin\AdminUser::delete/$1');
 
+    $routes->get('siswauser', 'Admin\SiswaUser::index');
+    $routes->post('siswauser/update/(:num)', 'Admin\SiswaUser::update/$1');
+    $routes->get('siswauser/delete/(:num)', 'Admin\SiswaUser::delete/$1');
+
     $routes->get('agama', 'Admin\Agama::index');
     $routes->post('agama/store', 'Admin\Agama::store');
     $routes->post('agama/update/(:num)', 'Admin\Agama::update/$1');
@@ -33,28 +40,32 @@ $routes->group('admin', ['filter' => 'role:admin'], function ($routes) {
     $routes->post('pekerjaan/update/(:num)', 'Admin\Pekerjaan::update/$1');
     $routes->get('pekerjaan/delete/(:num)', 'Admin\Pekerjaan::delete/$1');
 
-    $routes->get('persyaratan', 'Admin\Persyaratan::index');
-    $routes->post('persyaratan/store', 'Admin\Persyaratan::store');
-    $routes->post('persyaratan/update/(:num)', 'Admin\Persyaratan::update/$1');
-    $routes->get('persyaratan/delete/(:num)', 'Admin\Persyaratan::delete/$1');
+    $routes->get('alamat', 'Admin\Alamat::index');
+    $routes->post('alamat/store', 'Admin\Alamat::store');
+    $routes->post('alamat/update/(:num)', 'Admin\Alamat::update/$1');
+    $routes->get('alamat/delete/(:num)', 'Admin\Alamat::delete/$1');
 
-    $routes->get('profilsekolah', 'Admin\ProfilSekolah::index');
-    $routes->post('profilsekolah/update', 'Admin\ProfilSekolah::update');
+    $routes->get('pendidikan', 'Admin\Pendidikan::index');
+    $routes->post('pendidikan/store', 'Admin\Pendidikan::store');
+    $routes->post('pendidikan/update/(:num)', 'Admin\Pendidikan::update/$1');
+    $routes->get('pendidikan/delete/(:num)', 'Admin\Pendidikan::delete/$1');
 
-    $routes->get('latarbelakang', 'Admin\LatarBelakang::index');
-    $routes->post('latarbelakang/store', 'Admin\LatarBelakang::store');
-    $routes->get('latarbelakang/set_active/(:num)', 'Admin\LatarBelakang::set_active/$1');
-    $routes->get('latarbelakang/delete/(:num)', 'Admin\LatarBelakang::delete/$1');
+    $routes->get('tk', 'Admin\Tk::index');
+    $routes->post('tk/store', 'Admin\Tk::store');
+    $routes->post('tk/update/(:num)', 'Admin\Tk::update/$1');
+    $routes->get('tk/delete/(:num)', 'Admin\Tk::delete/$1');
 
     $routes->get('konfirmasi', 'Admin\Konfirmasi::index');
     $routes->get('konfirmasi/detail/(:num)', 'Admin\Konfirmasi::detail/$1');
-    $routes->get('konfirmasi/approve/(:num)', 'Admin\Konfirmasi::approve/$1');
+    $routes->post('konfirmasi/approve/(:num)', 'Admin\Konfirmasi::approve/$1');
     $routes->post('konfirmasi/reject/(:num)', 'Admin\Konfirmasi::reject/$1');
-    $routes->post('konfirmasi/perbaikan/(:num)', 'Admin\Konfirmasi::perbaikan/$1');
+    $routes->post('konfirmasi/izinkan_perbaikan/(:num)', 'Admin\Konfirmasi::izinkan_perbaikan/$1');
     $routes->get('konfirmasi/edit_siswa/(:num)', 'Admin\Konfirmasi::edit_siswa/$1');
     $routes->post('konfirmasi/update_siswa/(:num)', 'Admin\Konfirmasi::update_siswa/$1');
     $routes->get('konfirmasi/delete_siswa/(:num)', 'Admin\Konfirmasi::delete_siswa/$1');
     $routes->get('konfirmasi/cetak_pdf/(:num)', 'Admin\Konfirmasi::cetak_pdf/$1');
+
+    $routes->get('dataperbaikan', 'Admin\DataPerbaikan::index');
 
     $routes->get('pengaturan', 'Admin\Pengaturan::index');
     $routes->post('pengaturan/update', 'Admin\Pengaturan::update');
@@ -68,6 +79,19 @@ $routes->group('admin', ['filter' => 'role:admin'], function ($routes) {
     $routes->post('berkasfisik/store', 'Admin\BerkasFisik::store');
     $routes->post('berkasfisik/update/(:num)', 'Admin\BerkasFisik::update/$1');
     $routes->get('berkasfisik/delete/(:num)', 'Admin\BerkasFisik::delete/$1');
+
+    $routes->get('persyaratan', 'Admin\Persyaratan::index');
+    $routes->post('persyaratan/store', 'Admin\Persyaratan::store');
+    $routes->post('persyaratan/update/(:num)', 'Admin\Persyaratan::update/$1');
+    $routes->get('persyaratan/delete/(:num)', 'Admin\Persyaratan::delete/$1');
+
+    $routes->get('profilsekolah', 'Admin\ProfilSekolah::index');
+    $routes->post('profilsekolah/update', 'Admin\ProfilSekolah::update');
+
+    $routes->get('latarbelakang', 'Admin\LatarBelakang::index');
+    $routes->post('latarbelakang/store', 'Admin\LatarBelakang::store');
+    $routes->get('latarbelakang/set_active/(:num)', 'Admin\LatarBelakang::set_active/$1');
+    $routes->get('latarbelakang/delete/(:num)', 'Admin\LatarBelakang::delete/$1');
 });
 
 $routes->group('siswa', ['filter' => 'role:siswa'], function ($routes) {
